@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body>
+    <h2>Data</h2>
+    <div id="tableContainer">
+        <p><h1>Outliers:</h1>{{fx}}</p>
+    </div>
+    
+    <script>
+        // Function to add rows and columns to the table
+        function addRowsAndColumns(rows, cols) {
+            var table = document.getElementById('dynamicTable');
+
+            // Remove existing rows
+            table.getElementsByTagName('tbody')[0].innerHTML = '';
+
+            // Add new rows and columns
+            for (var i = 0; i < rows; i++) {
+                var newRow = table.insertRow();
+                for (var j = 0; j < cols; j++) {
+                    var cell = newRow.insertCell();
+                    cell.appendChild(document.createTextNode('Data'));
+                }
+            }
+        }
+
+        // Example: Add 3 rows and 4 columns initially
+        addRowsAndColumns(3, 4);
+    </script>
+</body>
+</html>
